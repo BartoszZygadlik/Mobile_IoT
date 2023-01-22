@@ -12,6 +12,15 @@
         android:theme="@style/Theme.Mobile_IoT"
         tools:targetApi="31">
         <activity
+            android:name=".Light"
+            android:exported="false" />
+        <activity
+            android:name=".Orientation"
+            android:exported="false" />
+        <activity
+            android:name=".Gyroscope"
+            android:exported="false" />
+        <activity
             android:name=".Accelerometer"
             android:exported="false" />
         <activity

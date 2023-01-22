@@ -21,6 +21,15 @@ class MainActivity : AppCompatActivity() {
             val explicitIntent = Intent(applicationContext,Accelerometer::class.java)
             startActivity(explicitIntent)
         }
+        binding.buttonGyro.setOnClickListener{
+            val explicitIntent = Intent(applicationContext,Gyroscope::class.java)
+            startActivity(explicitIntent)
+        }
+        binding.buttonLight.setOnClickListener{
+            val explicitIntent = Intent(applicationContext,Light::class.java)
+            startActivity(explicitIntent)
+        }
+
     }
 
 }

@@ -4,20 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    tools:context=".Accelerometer">
-
+    tools:context=".Gyroscope">
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
-        android:layout_margin="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/AccPlot">
+        android:layout_margin="20dp">
 
         <TableRow
-             android:background="@color/ap_gray">
+            android:background="@color/ap_gray">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -29,7 +25,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/AccUnit"
+                android:text="@string/GyroUnit"
                 android:padding="10sp"
                 android:textSize="14sp"
                 android:layout_weight="4"
@@ -47,7 +43,7 @@
                 android:layout_weight="4"
                 android:gravity="center_horizontal"/>
             <TextView
-                android:id="@+id/xAxisTextView"
+                android:id="@+id/xAxisGyro"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Axis"
@@ -66,7 +62,7 @@
             android:layout_weight="4"
             android:gravity="center_horizontal"/>
         <TextView
-            android:id="@+id/yAxisTextView"
+            android:id="@+id/yAxisGyro"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Axis"
@@ -85,7 +81,7 @@
             android:layout_weight="4"
             android:gravity="center_horizontal"/>
         <TextView
-            android:id="@+id/zAxisTextView"
+            android:id="@+id/zAxisGyro"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Axis"
@@ -95,20 +91,4 @@
             android:gravity="center_horizontal"/>
     </TableRow>
     </TableLayout>
-
-    <com.androidplot.xy.XYPlot
-        android:id="@+id/AccPlot"
-        style="@style/APDefacto.Light"
-        android:layout_width="410dp"
-        android:layout_height="527dp"
-        app:domainTitle="samples"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:rangeTitle="m/s^2"
-        app:renderMode="use_background_thread"
-        app:title="Accelerometr" />
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

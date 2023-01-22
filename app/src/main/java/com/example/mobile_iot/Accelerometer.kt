@@ -35,29 +35,6 @@ class Accelerometer : AppCompatActivity(), SensorEventListener {
 
         setUpSensor()
 
-        var domainLabels = arrayOf<Number>(1,2,3,4,5,6,7,8,9,10)
-        //var series1Number = arrayOf<Number>(50,2,3,14,-20,50,2,3,14,-20)
-        binding.AccPlot.setRenderMode(Plot.RenderMode.USE_BACKGROUND_THREAD)
-
-        val series1 : XYSeries = SimpleXYSeries(Arrays.asList(* AccVm.series1Number),SimpleXYSeries.ArrayFormat.Y_VALS_ONLY,
-        "Series 1 ") //dane
-        val series1Format = LineAndPointFormatter(Color.BLUE,Color.RED,null,null)
-
-        binding.AccPlot.addSeries(series1,series1Format)
-        binding.AccPlot.graph.getLineLabelStyle(XYGraphWidget.Edge.BOTTOM).format = object : Format(){
-            override fun format(p0: Any?, p1: StringBuffer?, p2: FieldPosition?): StringBuffer {
-                val i = Math.round((p0 as Number).toFloat())
-
-                return p1!!.append(domainLabels[i])
-
-            }
-
-            override fun parseObject(p0: String?, p1: ParsePosition?): Any? {
-                return null
-            }
-
-        }
-        PanZoom.attach(binding.AccPlot)
     }
 
     private fun setUpSensor() {
@@ -77,8 +54,11 @@ class Accelerometer : AppCompatActivity(), SensorEventListener {
             val yAxis = event.values[1]
             val zAxis = event.values[2]
 
+            AccVm.counter += 1
             AccVm.series1Number.plus(event.values[0])
-            AccVm.series1Number.toMutableList().removeAt(0)
+            AccVm.seriesY.plus(yAxis)
+            AccVm.seriesZ.plus(zAxis)
+            AccVm.numberOfSamples.plus(AccVm.counter)
 
             binding.xAxisTextView.text = xAxis.toString()
             binding.yAxisTextView.text = yAxis.toString()
