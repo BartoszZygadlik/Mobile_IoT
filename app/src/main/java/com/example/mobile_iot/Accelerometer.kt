@@ -9,6 +9,7 @@ import android.hardware.SensorManager
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.androidplot.Plot
 import com.androidplot.xy.LineAndPointFormatter
 import com.androidplot.xy.PanZoom
 import com.androidplot.xy.SimpleXYSeries
@@ -36,6 +37,7 @@ class Accelerometer : AppCompatActivity(), SensorEventListener {
 
         var domainLabels = arrayOf<Number>(1,2,3,4,5,6,7,8,9,10)
         //var series1Number = arrayOf<Number>(50,2,3,14,-20,50,2,3,14,-20)
+        binding.AccPlot.setRenderMode(Plot.RenderMode.USE_BACKGROUND_THREAD)
 
         val series1 : XYSeries = SimpleXYSeries(Arrays.asList(* AccVm.series1Number),SimpleXYSeries.ArrayFormat.Y_VALS_ONLY,
         "Series 1 ") //dane
